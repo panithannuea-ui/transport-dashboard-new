@@ -2203,7 +2203,7 @@ def make_route(df: pd.DataFrame) -> pd.Series:
 
 def get_year_series(df: pd.DataFrame) -> pd.Series:
     if "Travel Req. Date" in df.columns:
-        dt = pd.to_datetime(df["Travel Req. Date"], errors="coerce")
+        dt = pd.to_datetime(df["Travel Req. Date"], format="mixed", errors="coerce")
         year = dt.dt.year
         return year.apply(
             lambda x: (
