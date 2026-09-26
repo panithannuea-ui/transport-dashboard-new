@@ -38,7 +38,7 @@ DB_PATH = Path("dashboard.duckdb")
 DATA_FOLDER.mkdir(exist_ok=True)
 
 # Viewer mode is disabled by default so the existing Data Management menu remains available.
-VIEWER_MODE = False
+VIEWER_MODE = True
 
 # ==========================
 # Modern Dashboard Font Style
