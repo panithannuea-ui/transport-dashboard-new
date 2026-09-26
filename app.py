@@ -2203,7 +2203,7 @@ def make_route(df: pd.DataFrame) -> pd.Series:
 
 def get_year_series(df: pd.DataFrame) -> pd.Series:
     if "Travel Req. Date" in df.columns:
-        dt = pd.to_datetime(df["Travel Req. Date"], format="mixed", errors="coerce")
+        dt = pd.to_datetime(df["Travel Req. Date"], format="mixed", errors="coerce", dayfirst=True)
         year = dt.dt.year
         return year.apply(
             lambda x: (
@@ -3753,8 +3753,8 @@ if page == "📊 Dashboard Summary":
     # เพราะคอลัมน์ Month ใน Excel บางไฟล์ถูกอ่านเป็นวันที่ปี 1900
     if "Travel Req. Date" in df.columns:
         _travel_date = pd.to_datetime(
-            df["Travel Req. Date"],
-            errors="coerce",
+            df["Travel Req. Date"], format="mixed",
+            errors="coerce", format="%d/%m/%Y"
         )
         df["_MonthNum"] = _travel_date.dt.month
     else:
