@@ -3753,7 +3753,7 @@ if page == "📊 Dashboard Summary":
     # เพราะคอลัมน์ Month ใน Excel บางไฟล์ถูกอ่านเป็นวันที่ปี 1900
     if "Travel Req. Date" in df.columns:
         _travel_date = pd.to_datetime(
-            df["Travel Req. Date"], format="mixed",
+            df["Travel Req. Date"], 
             errors="coerce", format="%d/%m/%Y"
         )
         df["_MonthNum"] = _travel_date.dt.month
